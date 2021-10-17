@@ -1,0 +1,21 @@
+@charset 'utf-8';
+
+@mixin Mq($name) {
+  @media screen and (min-width: map-get($break_point_items, $name)) {
+    @content;
+  }
+}
+
+@mixin container() {
+  max-width: 315px;
+  margin: 0 auto;
+  @include Mq(sm) {
+    max-width: 480px;
+  }
+  @include Mq(md) {
+    max-width: 720px;
+  }
+  @include Mq(xl) {
+    max-width: 1150px;
+  }
+}

@@ -1,6 +1,54 @@
 @charset 'utf-8';
 
-p {
-  display: flex;
-  color: #f00;
+$BLOCK_NAME: ".header";
+
+// 変数
+$header_height_sp: 56px;
+$header_height_pc: 100px;
+
+#{ $BLOCK_NAME } {
+  background: $c_white;
+  border-bottom: 1px solid $c_border;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  @include Mq(lg) {
+    border: none;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    height: $header_height_sp;
+    padding-left: 15px;
+    @include Mq(lg) {
+      max-width: #{map-get($break_point_items, lg)};
+      height: $header_height_pc;
+      padding-left: 0;
+      margin: auto;
+    }
+  }
+
+  &__logo {
+    width: 117px;
+    height: auto;
+    font-size: 0;
+  }
+
+  &__nav {
+    height: 100%;
+    margin-left: auto;
+  }
+
+  &__nav-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $header_height_sp;
+    height: 100%;
+    color: $c_black;
+    cursor: pointer;
+    border-left: 1px solid $c_border;
+    @include Mq(lg) {
+      display: none;
+    }
+  }
 }

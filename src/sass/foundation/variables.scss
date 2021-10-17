@@ -1,4 +1,19 @@
 @charset 'utf-8';
 
 /* stylelint-disable */
+$c_white: #fff;
+$c_black: #000;
+
+$c_text: #666;
+$c_border: #ddd;
+
+$break_point_items: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
 /* stylelint-enable */
