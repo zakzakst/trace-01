@@ -7,10 +7,12 @@ $header_height_sp: 56px;
 $header_height_pc: 100px;
 
 #{ $BLOCK_NAME } {
+  position: relative;
+  z-index: 1;
   background: $c_white;
   border-bottom: 1px solid $c_border;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
-  @include Mq(lg) {
+  @include Mq(xl) {
     border: none;
   }
 
@@ -19,8 +21,9 @@ $header_height_pc: 100px;
     align-items: center;
     height: $header_height_sp;
     padding-left: 15px;
-    @include Mq(lg) {
-      max-width: #{map-get($break_point_items, lg)};
+    @include Mq(xl) {
+      // max-width: #{map-get($break_point_items, xl)};
+      max-width: 1150px;
       height: $header_height_pc;
       padding-left: 0;
       margin: auto;
@@ -34,21 +37,139 @@ $header_height_pc: 100px;
   }
 
   &__nav {
+    display: none;
     height: 100%;
     margin-left: auto;
+    @include Mq(xl) {
+      display: flex;
+    }
   }
 
-  &__nav-button {
+  &__nav-item {
+    position: relative;
+    height: 100%;
+    & > a {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 0 28px;
+      color: $c_text;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    &:hover {
+      & > a {
+        color: $c_primary;
+      }
+    }
+  }
+
+  &__nav-child {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 210px;
+    background: $c_primary_light;
+    opacity: 0;
+    transition: 0.5s;
+    transform: translate(0, 25%);
+    @at-root #{ $BLOCK_NAME }__nav-item.--has-child:hover & {
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
+
+  &__nav-child-item {
+    & > a {
+      display: block;
+      padding: 12px 20px;
+      line-height: 1.5;
+      color: $c_white;
+      text-decoration: none;
+      transition: 0.2s;
+      &:hover {
+        background: $c_primary;
+      }
+    }
+  }
+
+  &__button {
     display: flex;
     align-items: center;
     justify-content: center;
     width: $header_height_sp;
     height: 100%;
+    margin-left: auto;
     color: $c_black;
     cursor: pointer;
     border-left: 1px solid $c_border;
-    @include Mq(lg) {
+    @include Mq(xl) {
       display: none;
     }
+  }
+
+  &__button-icon {
+    &.--open {
+      @at-root #{ $BLOCK_NAME }__button.--open & {
+        display: none;
+      }
+    }
+    &.--close {
+      display: none;
+      @at-root #{ $BLOCK_NAME }__button.--open & {
+        display: block;
+      }
+    }
+  }
+
+  &__menu {
+    display: none;
+    background: $c_primary_light;
+    @include Mq(xl) {
+      display: none !important;
+    }
+  }
+
+  &__menu-item {
+    & > a {
+      position: relative;
+      display: block;
+      padding: 15px 30px 15px 15px;
+      color: $c_white;
+      text-decoration: none;
+    }
+  }
+
+  &__menu-icon {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    bottom: 0;
+    margin: auto;
+    font-size: 12px;
+  }
+
+  &__menu-child {
+    display: none;
+    background: $c_primary;
+  }
+
+  &__menu-child-item {
+    & > a {
+      position: relative;
+      display: block;
+      padding: 15px 30px 15px 28px;
+      color: $c_white;
+      text-decoration: none;
+    }
+  }
+
+  &__menu-child-icon {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    bottom: 0;
+    margin: auto;
+    font-size: 12px;
   }
 }
