@@ -1,6 +1,6 @@
 exports.CONSTANTS = {
   DOMAIN: 'https://domain/',
-  SITE_ROOT: 'root/',
+  SITE_ROOT: '',
   SITE_NAME: 'サイト名',
   SHORTCUT_ICON: 'https://domain/path/to/icon',
   APPLE_ICON: 'https://domain/path/to/icon',
