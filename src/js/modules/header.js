@@ -1,69 +1,83 @@
 import $ from 'jquery';
 
-export function headerScripts() {
-  const el = $('#js-header__navbar');
-  if (!el) {
-    return;
+export function HeaderInit() {
+  const header = new Header();
+  header.init();
+}
+
+class Header {
+  constructor() {
+    this.$buttonEl = $('#js-header__button');
+    this.$menuEl = $('#js-header__menu');
+    this.$menuItemEls = $('.header__menu-item');
   }
-  const menu = $('#js-header__navbar-menu');
-  const button = $('#js-header__navbar-button');
-  const speed = 400;
 
-  addEventToggleMenu();
-  addEventRisizeReset();
-  addObserverHederBg();
+  // 初期化
+  init() {
+    this.onClickButton();
+    this.onClickMenuItem();
+  }
 
-  function addEventToggleMenu() {
-    button.on('click', (e) => {
+  // メニューを開く
+  menuOpen() {
+    this.$menuEl.slideDown();
+    this.$menuEl.addClass('--open');
+    this.$buttonEl.addClass('--open');
+  }
+
+  // メニューを閉じる
+  menuClose() {
+    this.$menuEl.slideUp();
+    this.$menuEl.removeClass('--open');
+    this.$buttonEl.removeClass('--open');
+  }
+
+  // メニューを開閉する
+  menuToggle() {
+    if (this.$menuEl.hasClass('--open')) {
+      // 開いている状態の場合、メニューを閉じる
+      this.menuClose();
+    } else {
+      // 閉じている状態の場合、メニューを開く
+      this.menuOpen();
+    }
+  }
+
+  // 子メニューを開く
+  menuChildOpen($targetEl) {
+    console.log($targetEl);
+  }
+
+  // 子メニューを閉じる
+  menuChildClose($targetEl) {
+    console.log($targetEl);
+  }
+
+  // 子メニューを開閉する
+  menuChildToggle($targetEl) {
+    if ($targetEl.hasClass('--open')) {
+      // 開いている状態の場合、メニューを閉じる
+      this.menuChildClose($targetEl);
+    } else {
+      // 閉じている状態の場合、メニューを開く
+      this.menuChildOpen($targetEl);
+    }
+  }
+
+  // ボタンクリック時のイベント設定
+  onClickButton() {
+    this.$buttonEl.on('click', () => {
+      this.menuToggle();
+    });
+  }
+
+  // メニュークリック時のイベント設定
+  onClickMenuItem() {
+    // NOTE: fontawesomeのスクリプトの関係で、アイコン要素にイベント設定するのは上手くいかなかった
+    this.$menuItemEls.on('click', (e) => {
+      // TODO: クリックされた要素がアイコンだった場合の分岐追加
       e.preventDefault();
-      if (el.hasClass('is-open')) {
-        menuClose();
-      } else {
-        menuOpen();
-      }
+      console.log(e);
     });
-  }
-
-  function addEventRisizeReset() {
-    $(window).resize(() => {
-      menuClear();
-    });
-  }
-
-  function menuOpen() {
-    menu.slideDown(speed);
-    el.addClass('is-open');
-    button.addClass('is-active');
-  }
-
-  function menuClose() {
-    menu.slideUp(speed, () => {
-      el.removeClass('is-open');
-      button.removeClass('is-active');
-    });
-  }
-
-  function menuClear() {
-    menu.css('display', '');
-    el.removeClass('is-open');
-    button.removeClass('is-active');
-  }
-
-  function addObserverHederBg() {
-    const options = {
-      root: null,
-      rootMargin: '2% 0px -102%',
-      threshold: 0,
-    };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          el.addClass('is-show-bg');
-        } else {
-          el.removeClass('is-show-bg');
-        }
-      });
-    }, options);
-    observer.observe(document.body);
   }
 }
