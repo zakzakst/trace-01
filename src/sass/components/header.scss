@@ -5,6 +5,8 @@ $BLOCK_NAME: ".header";
 // 変数
 $header_height_sp: 56px;
 $header_height_pc: 100px;
+$header_transition_default: 0.5s;
+$header_transition_link: 0.2s;
 
 #{ $BLOCK_NAME } {
   position: relative;
@@ -22,8 +24,7 @@ $header_height_pc: 100px;
     height: $header_height_sp;
     padding-left: 15px;
     @include Mq(xl) {
-      // max-width: #{map-get($break_point_items, xl)};
-      max-width: 1150px;
+      max-width: #{map-get($width_container_items, xl)};
       height: $header_height_pc;
       padding-left: 0;
       margin: auto;
@@ -55,7 +56,7 @@ $header_height_pc: 100px;
       padding: 0 28px;
       color: $c_text;
       text-decoration: none;
-      transition: 0.2s;
+      transition: $header_transition_link;
     }
     &:hover {
       & > a {
@@ -69,11 +70,13 @@ $header_height_pc: 100px;
     top: 100%;
     left: 0;
     width: 210px;
+    visibility: hidden;
     background: $c_primary_light;
     opacity: 0;
-    transition: 0.5s;
+    transition: $header_transition_default;
     transform: translate(0, 25%);
     @at-root #{ $BLOCK_NAME }__nav-item.--has-child:hover & {
+      visibility: visible;
       opacity: 1;
       transform: translate(0);
     }
@@ -86,7 +89,7 @@ $header_height_pc: 100px;
       line-height: 1.5;
       color: $c_white;
       text-decoration: none;
-      transition: 0.2s;
+      transition: $header_transition_link;
       &:hover {
         background: $c_primary;
       }
@@ -147,6 +150,10 @@ $header_height_pc: 100px;
     bottom: 0;
     margin: auto;
     font-size: 12px;
+    transition: $header_transition_default;
+    @at-root #{ $BLOCK_NAME }__menu-item.--open & {
+      transform: rotate(180deg);
+    }
   }
 
   &__menu-child {
