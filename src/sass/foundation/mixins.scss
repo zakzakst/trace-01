@@ -10,12 +10,15 @@
   max-width: 315px;
   margin: 0 auto;
   @include Mq(sm) {
-    max-width: 480px;
+    max-width: #{map-get($width_container_items, sm)};
   }
   @include Mq(md) {
-    max-width: 720px;
+    max-width: #{map-get($width_container_items, md)};
+  }
+  @include Mq(lg) {
+    max-width: #{map-get($width_container_items, lg)};
   }
   @include Mq(xl) {
-    max-width: 1150px;
+    max-width: #{map-get($width_container_items, xl)};
   }
 }

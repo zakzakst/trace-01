@@ -44,23 +44,27 @@ class Header {
   }
 
   // 子メニューを開く
-  menuChildOpen($targetEl) {
-    console.log($targetEl);
+  menuChildOpen($targetItemEl) {
+    const $childEl = $targetItemEl.find('.header__menu-child');
+    $childEl.slideDown();
+    $targetItemEl.addClass('--open');
   }
 
   // 子メニューを閉じる
-  menuChildClose($targetEl) {
-    console.log($targetEl);
+  menuChildClose($targetItemEl) {
+    const $childEl = $targetItemEl.find('.header__menu-child');
+    $childEl.slideUp();
+    $targetItemEl.removeClass('--open');
   }
 
   // 子メニューを開閉する
-  menuChildToggle($targetEl) {
-    if ($targetEl.hasClass('--open')) {
+  menuChildToggle($targetItemEl) {
+    if ($targetItemEl.hasClass('--open')) {
       // 開いている状態の場合、メニューを閉じる
-      this.menuChildClose($targetEl);
+      this.menuChildClose($targetItemEl);
     } else {
       // 閉じている状態の場合、メニューを開く
-      this.menuChildOpen($targetEl);
+      this.menuChildOpen($targetItemEl);
     }
   }
 
@@ -75,9 +79,14 @@ class Header {
   onClickMenuItem() {
     // NOTE: fontawesomeのスクリプトの関係で、アイコン要素にイベント設定するのは上手くいかなかった
     this.$menuItemEls.on('click', (e) => {
-      // TODO: クリックされた要素がアイコンだった場合の分岐追加
-      e.preventDefault();
-      console.log(e);
+      const $targetEl = $(e.target);
+      const targetElTagName = $targetEl[0].tagName;
+      const $targetItemEl = $($targetEl.closest('.header__menu-item')[0]);
+      if (targetElTagName !== 'A' && $targetItemEl.hasClass('--has-child')) {
+        // クリックされた要素がaタグでない（アイコン要素）場合、子リンクを開閉する
+        this.menuChildToggle($targetItemEl);
+        e.preventDefault();
+      }
     });
   }
 }
