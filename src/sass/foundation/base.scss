@@ -2,7 +2,13 @@
 
 @import "../../../node_modules/normalize.css/normalize";
 
+* {
+  box-sizing: border-box;
+}
+
 h1,
+h2,
+h3,
 ul,
 p {
   padding: 0;

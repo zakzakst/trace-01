@@ -1,0 +1,79 @@
+@charset 'utf-8';
+
+$BLOCK_NAME: ".footer-nav";
+
+// 変数
+$footer_nav_gap: 10px;
+
+#{ $BLOCK_NAME } {
+  position: relative;
+  padding: 50px 0;
+  background: url(https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/10/footer-nav.jpg)
+    center center no-repeat;
+  background-size: cover;
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: "";
+    background: rgba($c_primary, 0.8);
+  }
+  @include Mq(md) {
+    padding: 90px 0;
+  }
+
+  &__container {
+    @include container();
+    position: relative;
+    z-index: 1;
+  }
+
+  &__contents {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 (-$footer_nav_gap / 2);
+  }
+
+  &__content {
+    width: calc(100% / 2);
+    padding: 0 ($footer_nav_gap / 2);
+    margin-top: 20px;
+    &:nth-child(1),
+    &:nth-child(2) {
+      margin-top: 0;
+    }
+    @include Mq(md) {
+      width: calc(100% / 7);
+      margin-top: 0;
+    }
+  }
+
+  &__heading {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.2;
+    color: $c_white;
+  }
+
+  &__items {
+    margin-top: 16px;
+  }
+
+  &__item {
+    & > a {
+      display: block;
+      padding: 8px 0;
+      font-size: 12px;
+      color: $c_white;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+      @include Mq(md) {
+        font-size: 10px;
+      }
+    }
+  }
+}

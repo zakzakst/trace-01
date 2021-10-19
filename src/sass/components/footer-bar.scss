@@ -3,12 +3,59 @@
 $BLOCK_NAME: ".footer-bar";
 
 // 変数
+$footer_bar_icon_size: 17px;
 
 #{ $BLOCK_NAME } {
-  padding-top: 60px;
-  padding-bottom: 60px;
+  position: relative;
 
-  &__container {
+  &__social {
     @include container();
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include Mq(xl) {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: calc((100% - #{map-get($width_container_items, xl)}) / 2);
+    }
+  }
+
+  &__social-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $footer_bar_icon_size;
+    height: $footer_bar_icon_size;
+    margin: 0 10px;
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    & > a {
+      font-size: $footer_bar_icon_size;
+      color: $c_text;
+      @include Mq(xl) {
+        color: $c_white;
+      }
+    }
+  }
+
+  &__copyright {
+    padding: 20px 0;
+    margin-top: 30px;
+    color: $c_white;
+    background: $c_primary;
+    @include Mq(xl) {
+      margin-top: 0;
+    }
+  }
+
+  &__copyright-container {
+    @include container();
+    font-size: 10px;
+    text-align: center;
   }
 }
