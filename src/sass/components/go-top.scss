@@ -3,7 +3,22 @@
 $BLOCK_NAME: ".go-top";
 
 // 変数
+$go_top_size: 60px;
 
 #{ $BLOCK_NAME } {
-  //
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: $z_go_top;
+  display: none;
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $go_top_size;
+    height: $go_top_size;
+    color: $c_white;
+    background: $c_primary;
+  }
 }
