@@ -1,1 +1,64 @@
-<div>ギャラリー</div>
+{% set FOOTER_GALLERIES = [
+  {
+    heading: 'おふたりの新たなSTORY、貴重な時間を大切な人たちと',
+    link: 'https://demo.tcd-theme.com/tcd041/?gallery=precious',
+    img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/44-728x504.jpg'
+  },
+  {
+    heading: '家族へ感謝の気持ちをいっぱい届けたい！',
+    link: 'https://demo.tcd-theme.com/tcd041/?gallery=family',
+    img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/13-2-728x504.jpg'
+  },
+  {
+    heading: '世界でたったひとつのウェディング',
+    link: 'https://demo.tcd-theme.com/tcd041/?gallery=wedding',
+    img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/04-2-728x504.jpg'
+  },
+  {
+    heading: 'サプライズに対する想い',
+    link: 'https://demo.tcd-theme.com/tcd041/?gallery=surprise',
+    img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/07-4-728x504.jpg'
+  },
+  {
+    heading: '心に残る素晴らしい結婚式・感動の演出',
+    link: 'https://demo.tcd-theme.com/tcd041/?gallery=performance',
+    img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/39-728x504.jpg'
+  },
+  {
+    heading: '感動のライブエンドロール',
+    link: 'https://demo.tcd-theme.com/tcd041/?gallery=endroll',
+    img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/51-728x504.jpg'
+  },
+  {
+    heading: '今までお世話になった友人に思い出のアルバムを',
+    link: 'https://demo.tcd-theme.com/tcd041/?gallery=album',
+    img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/03-3-728x504.jpg'
+  },
+  {
+    heading: '稀有なこだわりに溢れる一日',
+    link: 'https://demo.tcd-theme.com/tcd041/?gallery=rare',
+    img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/48-728x504.jpg'
+  },
+  {
+    heading: 'ギャラリー使い方ガイド',
+    link: 'https://demo.tcd-theme.com/tcd041/?gallery=gallery',
+    img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/08-2-728x504.jpg'
+  },
+  {
+    heading: 'リラックスできるアットホームなウェディング',
+    link: 'https://demo.tcd-theme.com/tcd041/?gallery=relax',
+    img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/14-4-728x504.jpg'
+  }
+] -%}
+
+<section class="footer-gallery">
+  <h2 class="footer-gallery__title">Gallery</h2>
+  <div id="js-footer-gallery__slider" class="footer-gallery__slider">
+    {%- for FOOTER_GALLERY in FOOTER_GALLERIES -%}
+      <a href="{{ FOOTER_GALLERY.link }}" class="footer-gallery__item">
+        <img src="{{ FOOTER_GALLERY.img }}" alt="">
+        <h3 class="footer-gallery__heading">{{ FOOTER_GALLERY.heading }}</h3>
+      </a>
+    {%- endfor -%}
+  </div>
+</section>

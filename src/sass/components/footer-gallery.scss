@@ -1,0 +1,68 @@
+@charset 'utf-8';
+
+$BLOCK_NAME: ".footer-gallery";
+
+// 変数
+$footer_gallery_duration_default: 0.4s;
+$footer_gallery_duration_heading: 1s;
+
+#{ $BLOCK_NAME } {
+  &__title {
+    padding: 15px 0;
+    font-family: $ff_serif;
+    font-size: 40px;
+    font-weight: normal;
+    color: $c_primary;
+    text-align: center;
+    background: $c_gray_light;
+  }
+
+  &__slider {
+    // Slickの仕様上できる隙間への対処
+    line-height: 0;
+  }
+
+  &__item {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background: rgba($c_white, 0.9);
+      opacity: 0;
+      transition: $footer_gallery_duration_default;
+    }
+    &:hover {
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__heading {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    margin: auto;
+    font-family: $ff_serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.7;
+    color: $c_primary;
+    opacity: 0;
+    transition: $footer_gallery_duration_heading;
+    @at-root #{ $BLOCK_NAME }__item:hover & {
+      opacity: 1;
+      transform: translateY(-50%);
+    }
+  }
+}
