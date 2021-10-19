@@ -1,0 +1,14 @@
+@charset 'utf-8';
+
+$BLOCK_NAME: ".footer-bar";
+
+// 変数
+
+#{ $BLOCK_NAME } {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  &__container {
+    @include container();
+  }
+}

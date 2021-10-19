@@ -3,9 +3,19 @@
 @import "../../../node_modules/normalize.css/normalize";
 
 h1,
-ul {
+ul,
+p {
   padding: 0;
   margin: 0;
+}
+
+body {
+  font-size: 14px;
+  color: $c_text;
+}
+
+p {
+  line-height: 2.4;
 }
 
 img {
@@ -19,9 +29,4 @@ button {
 
 ul {
   list-style: none;
-}
-
-body {
-  font-size: 14px;
-  color: $c_text;
 }

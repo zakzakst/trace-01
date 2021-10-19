@@ -1,6 +1,9 @@
 @charset 'utf-8';
 
-p {
-  display: flex;
-  color: #f00;
+$BLOCK_NAME: ".footer";
+
+// 変数
+
+#{ $BLOCK_NAME } {
+  //
 }

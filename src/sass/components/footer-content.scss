@@ -1,0 +1,26 @@
+@charset 'utf-8';
+
+$BLOCK_NAME: ".footer-content";
+
+// 変数
+
+#{ $BLOCK_NAME } {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  &__container {
+    @include container();
+  }
+
+  &__logo {
+    text-align: center;
+    & img {
+      width: 117px;
+    }
+  }
+
+  &__text {
+    margin-top: 25px;
+    text-align: center;
+  }
+}
