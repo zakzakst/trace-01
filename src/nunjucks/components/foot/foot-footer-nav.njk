@@ -1,1 +1,136 @@
-<div>ナビ</div>
+{% set FOOTER_NAVS = [
+  {
+    heading: 'NEWS',
+    items: [
+        {
+            label: 'ニュース',
+            link: 'https://demo.tcd-theme.com/tcd041/?post_type=news'
+        }
+    ]
+  },
+  {
+    heading: 'CONCEPT',
+    items: [
+        {
+            label: 'コンセプト',
+            link: 'https://demo.tcd-theme.com/tcd041/?page_id=25'
+        },
+        {
+            label: '挙式',
+            link: 'https://demo.tcd-theme.com/tcd041/?page_id=25'
+        },
+        {
+            label: '披露宴',
+            link: 'https://demo.tcd-theme.com/tcd041/?page_id=25'
+        },
+        {
+            label: '料理',
+            link: 'https://demo.tcd-theme.com/tcd041/?page_id=25'
+        }
+    ]
+  },
+  {
+    heading: 'WEDDING',
+    items: [
+        {
+            label: 'ウェディング',
+            link: 'https://demo.tcd-theme.com/tcd041/?page_id=27'
+        },
+        {
+            label: 'ブライダル',
+            link: 'https://demo.tcd-theme.com/tcd041/?page_id=27'
+        },
+        {
+            label: 'ドレス',
+            link: 'https://demo.tcd-theme.com/tcd041/?page_id=27'
+        }
+    ]
+  },
+  {
+    heading: 'FACILITY',
+    items: [
+        {
+            label: '挙式会場',
+            link: 'https://demo.tcd-theme.com/tcd041/?page_id=29'
+        },
+        {
+            label: 'ガーデン',
+            link: 'https://demo.tcd-theme.com/tcd041/?page_id=29'
+        },
+        {
+            label: 'ドレスサロン',
+            link: 'https://demo.tcd-theme.com/tcd041/?page_id=29'
+        },
+        {
+            label: 'アクセス',
+            link: 'https://demo.tcd-theme.com/tcd041/?page_id=29'
+        }
+    ]
+  },
+  {
+    heading: 'GALLERY',
+    items: [
+        {
+            label: 'ギャラリー',
+            link: 'https://demo.tcd-theme.com/tcd041/?post_type=gallery'
+        },
+        {
+            label: 'ウェディング',
+            link: 'https://demo.tcd-theme.com/tcd041/?gallery_category=wedding'
+        },
+        {
+            label: 'パーティ',
+            link: 'https://demo.tcd-theme.com/tcd041/?gallery_category=party'
+        },
+        {
+            label: '披露宴',
+            link: 'https://demo.tcd-theme.com/tcd041/?gallery_category=reception'
+        }
+    ]
+  },
+  {
+    heading: 'BLOG',
+    items: [
+        {
+            label: 'THEME',
+            link: 'https://demo.tcd-theme.com/tcd041/?cat=21'
+        },
+        {
+            label: 'FEATURE',
+            link: 'https://demo.tcd-theme.com/tcd041/?cat=1'
+        },
+        {
+            label: 'DESIGN',
+            link: 'https://demo.tcd-theme.com/tcd041/?cat=20'
+        }
+    ]
+  },
+  {
+    heading: 'CONTACT',
+    items: [
+        {
+            label: 'お問い合わせ',
+            link: 'http://tcd-theme.com/contact'
+        }
+    ]
+  }
+] -%}
+
+<div class="footer-nav">
+  <div class="footer-nav__container">
+    <ul class="footer-nav__contents">
+      {%- for FOOTER_NAV in FOOTER_NAVS -%}
+        <li class="footer-nav__content">
+          <h3 class="footer-nav__heading">{{ FOOTER_NAV.heading }}</h3>
+          <ul class="footer-nav__items">
+            {%- for FOOTER_NAV_ITEM in FOOTER_NAV.items -%}
+              <li class="footer-nav__item">
+                <a href="{{ FOOTER_NAV_ITEM.link }}">{{ FOOTER_NAV_ITEM.label }}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>

@@ -1,13 +1,33 @@
+{% set FOOTER_SOCIALS = [
+  {
+    link: 'https://twitter.com/tcd_jp',
+    class: 'fab fa-twitter'
+  },
+  {
+    link: 'https://www.facebook.com/wptcd/',
+    class: 'fab fa-facebook-f'
+  },
+  {
+    link: 'https://www.instagram.com/tcd_dp/',
+    class: 'fab fa-instagram'
+  },
+  {
+    link: 'https://demo.tcd-theme.com/tcd041',
+    class: 'fas fa-rss'
+  }
+] -%}
+
 <div class="footer-bar">
-  <div class="footer-bar__container">
-    {# <ul class="social-nav">
-      <li class="social-nav-twitter social-nav-item"><a href="https://twitter.com/tcd_jp" target="_blank"></a></li>
-      <li class="social-nav-facebook social-nav-item"><a href="https://www.facebook.com/wptcd/" target="_blank"></a></li>
-      <li class="social-nav-instagram  social-nav-item"><a href="https://www.instagram.com/tcd_dp/" target="_blank"></a></li>
-      <li class="social-nav-rss social-nav-item"><a href="https://demo.tcd-theme.com/tcd041" target="_blank"></a></li>
-    </ul> #}
-  </div>
+  <ul class="footer-bar__social">
+    {%- for FOOTER_SOCIAL in FOOTER_SOCIALS -%}
+      <li class="footer-bar__social-item">
+        <a href="{{ FOOTER_SOCIAL.link }}" target="_blank">
+          <i class="{{ FOOTER_SOCIAL.class }}"></i>
+        </a>
+      </li>
+    {%- endfor -%}
+  </ul>
   <div class="footer-bar__copyright">
-    <p class="footer-bar__copyright"><small>Copyright ©XXXXX. All Rights Reserved.</small></p>
+    <p class="footer-bar__copyright-container">Copyright ©XXXXX. All Rights Reserved.</p>
   </div>
 </div>
