@@ -8,26 +8,40 @@ export function GoTopInit() {
 class GoTop {
   constructor() {
     this.$el = $('#js-go-top');
+    this.speed = 600;
   }
 
   // 初期化
   init() {
-    console.log('トップへ戻る初期化');
+    if (this.$el.length) {
+      this.toggleByOffset();
+      this.onClick();
+      this.onScroll();
+    }
+  }
+
+  // 表示切り替え
+  toggleByOffset() {
+    const offset = $(window).scrollTop();
+    if (offset > 100) {
+      this.$el.fadeIn('slow');
+    } else {
+      this.$el.fadeOut();
+    }
+  }
+
+  // クリック時のイベント設定
+  onClick() {
+    this.$el.on('click', (e) => {
+      e.preventDefault();
+      $('body,html').animate({ scrollTop: 0 }, this.speed);
+    });
+  }
+
+  // スクロール時のイベント設定
+  onScroll() {
+    $(window).on('scroll', () => {
+      this.toggleByOffset();
+    });
   }
 }
-
-// export function GoTop() {
-//   const el = $('#js-go-top');
-//   if (!el) {
-//     return;
-//   }
-//   addEventGoTop();
-
-//   function addEventGoTop() {
-//     const speed = 600;
-//     el.find('a').on('click', (e) => {
-//       e.preventDefault();
-//       $('body,html').animate({ scrollTop: 0 }, speed);
-//     });
-//   }
-// }
