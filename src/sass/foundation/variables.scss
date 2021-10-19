@@ -5,6 +5,7 @@ $c_primary: #9f886e;
 $c_primary_light: #c5b8a8;
 $c_white: #fff;
 $c_black: #000;
+$c_gray_light: #f6f6f6;
 
 $c_text: #666;
 $c_border: #ddd;
@@ -25,5 +26,9 @@ $width_container_items: (
   xl: 1150px,
   xxl: 1150px,
 );
+
+$ff_serif: "Times New Roman", "游明朝", "Yu Mincho", "游明朝体", "YuMincho",
+  "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "HiraMinProN-W3", "HGS明朝E",
+  "ＭＳ Ｐ明朝", "MS PMincho", serif;
 
 /* stylelint-enable */

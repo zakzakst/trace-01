@@ -5,8 +5,8 @@ $BLOCK_NAME: ".header";
 // 変数
 $header_height_sp: 56px;
 $header_height_pc: 100px;
-$header_transition_default: 0.5s;
-$header_transition_link: 0.2s;
+$header_duration_default: 0.5s;
+$header_duration_link: 0.2s;
 
 #{ $BLOCK_NAME } {
   position: relative;
@@ -56,7 +56,7 @@ $header_transition_link: 0.2s;
       padding: 0 28px;
       color: $c_text;
       text-decoration: none;
-      transition: $header_transition_link;
+      transition: $header_duration_link;
     }
     &:hover {
       & > a {
@@ -73,7 +73,7 @@ $header_transition_link: 0.2s;
     visibility: hidden;
     background: $c_primary_light;
     opacity: 0;
-    transition: $header_transition_default;
+    transition: $header_duration_default;
     transform: translate(0, 25%);
     @at-root #{ $BLOCK_NAME }__nav-item.--has-child:hover & {
       visibility: visible;
@@ -89,7 +89,7 @@ $header_transition_link: 0.2s;
       line-height: 1.5;
       color: $c_white;
       text-decoration: none;
-      transition: $header_transition_link;
+      transition: $header_duration_link;
       &:hover {
         background: $c_primary;
       }
@@ -150,7 +150,7 @@ $header_transition_link: 0.2s;
     bottom: 0;
     margin: auto;
     font-size: 12px;
-    transition: $header_transition_default;
+    transition: $header_duration_default;
     @at-root #{ $BLOCK_NAME }__menu-item.--open & {
       transform: rotate(180deg);
     }

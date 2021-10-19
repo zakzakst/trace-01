@@ -14,8 +14,10 @@ class Header {
 
   // 初期化
   init() {
-    this.onClickButton();
-    this.onClickMenuItem();
+    if (this.$buttonEl.length && this.$menuEl.length) {
+      this.onClickButton();
+      this.onClickMenuItem();
+    }
   }
 
   // メニューを開く
