@@ -1,14 +1,24 @@
 import $ from 'jquery';
 
-export function pageLoader() {
-  const el = $('#js-page-loader');
-  if (!el) {
-    return;
-  }
-  const speed = 400;
-  const delay = 400;
+export function PageLoaderInit() {
+  const pageLoader = new PageLoader();
+  pageLoader.init();
+}
 
-  $(window).on('load', () => {
-    el.delay(delay).fadeOut(speed);
-  });
+class PageLoader {
+  constructor() {
+    this.$el = $('#js-page-loader');
+  }
+
+  // 初期化
+  init() {
+    this.onLoad();
+  }
+
+  // ページロード完了時のイベント設定
+  onLoad() {
+    $(window).on('load', () => {
+      $('#js-page-loader').delay(900).fadeOut(800);
+    });
+  }
 }
