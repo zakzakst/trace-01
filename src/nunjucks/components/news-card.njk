@@ -1,15 +1,16 @@
 {% macro default(item) %}
-<div class="card">
-    <div class="card-image">
-        <figure class="image is-2by1">
-            <img src="{{ item.img }}" alt="{{ item.alt }}">
-        </figure>
-    </div>
-    <div class="card-content">
-        <div class="content">{{ item.text }}</div>
-    </div>
-    <footer class="card-footer">
-        <a href="{{ item.link }}" class="card-footer-item">詳細を見る</a>
-    </footer>
-</div>
+<article class="">
+  <div>
+    <a class="" href="{{ item.link }}">
+      <img width="280" height="280" src="{{ item.img }}" class="" alt="" loading="lazy">
+    </a>
+  </div>
+  <div class="article02-content">
+    <time class="article02-date" datetime="2016-09-13">2016.09.13</time>
+    <h3 class="article02-title">
+      <a href="{{ item.link }}">{{ item.heading }}</a>
+    </h3>
+    <p class="">{{ item.text }}</p>
+  </div>
+</article>
 {% endmacro %}
