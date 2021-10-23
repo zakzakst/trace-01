@@ -17,11 +17,12 @@ class BlogCard {
     }
   }
 
-  // タグホバー時のイベント設定
+  // ホバー時のイベント設定
   onHover() {
     this.$els.hover((e) => {
       const target = $(e.currentTarget);
       const link = target.attr('href');
+      // タグホバー時の挙動を設定
       $('.blog-card__tag', target).hover(
         (targetTag) => {
           target.attr('href', $(targetTag.currentTarget).data('url'));
