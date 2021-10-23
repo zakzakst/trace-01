@@ -3,7 +3,57 @@
 $BLOCK_NAME: ".news-card";
 
 // 変数
+$news_card_duration_default: 0.5s;
 
 #{ $BLOCK_NAME } {
-  //
+  display: flex;
+  text-decoration: none;
+
+  &__img {
+    position: relative;
+    flex-shrink: 0;
+    width: 30%;
+    height: 0;
+    padding-bottom: 30%;
+    overflow: hidden;
+    & > img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  &__content {
+    flex-grow: 1;
+    margin-left: 15px;
+  }
+
+  &__date {
+    display: block;
+    font-weight: bold;
+    color: $c_text;
+  }
+
+  &__heading {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.6;
+    color: $c_primary;
+    transition: $news_card_duration_default;
+    @at-root #{ $BLOCK_NAME }:hover & {
+      color: $c_primary_dark;
+    }
+  }
+
+  &__text {
+    margin-top: 5px;
+    line-height: 1.8;
+    color: $c_text;
+  }
 }

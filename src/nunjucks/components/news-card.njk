@@ -1,16 +1,12 @@
 {% macro default(item) %}
-<article class="">
-  <div>
-    <a class="" href="{{ item.link }}">
-      <img width="280" height="280" src="{{ item.img }}" class="" alt="" loading="lazy">
-    </a>
+<a href="{{ item.link }}" class="news-card">
+  <div class="news-card__img">
+    <img width="280" height="280" src="{{ item.img }}" alt="" loading="lazy">
   </div>
-  <div class="article02-content">
-    <time class="article02-date" datetime="2016-09-13">2016.09.13</time>
-    <h3 class="article02-title">
-      <a href="{{ item.link }}">{{ item.heading }}</a>
-    </h3>
-    <p class="">{{ item.text }}</p>
+  <div class="news-card__content">
+    <time class="news-card__date">{{ item.date }}</time>
+    <h3 class="news-card__heading">{{ item.heading }}</h3>
+    <p class="news-card__text">{{ item.text }}</p>
   </div>
-</article>
+</a>
 {% endmacro %}
