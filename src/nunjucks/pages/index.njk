@@ -39,6 +39,118 @@
   }
 ] -%}
 
+{%- import 'components/blog-card.njk' as BLOG_CARD -%}
+{% set BLOG_ITEMS = [
+  {
+    date: '2016.11.23',
+    heading: '洗練された美しさと機能美を追求したブライダル向けW...',
+    link: 'https://demo.tcd-theme.com/tcd041/?p=1480',
+    img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/16-280x280.jpg',
+    tags: [
+      {
+        label: 'FEATURE',
+        link: 'https://demo.tcd-theme.com/tcd041/?cat=1'
+      },
+      {
+        label: 'THEME',
+        link: 'https://demo.tcd-theme.com/tcd041/?cat=21'
+      }
+    ]
+  },
+  {
+    date: '2016.11.22',
+    heading: '固定ページをスタイリッシュに演出する4種類のページ...',
+    link: 'https://demo.tcd-theme.com/tcd041/?p=145',
+    img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/19-280x280.jpg',
+    tags: [
+      {
+        label: 'FEATURE',
+        link: 'https://demo.tcd-theme.com/tcd041/?cat=1'
+      },
+      {
+        label: 'THEME',
+        link: 'https://demo.tcd-theme.com/tcd041/?cat=21'
+      }
+    ]
+  },
+  {
+    date: '2016.11.22',
+    heading: 'ヘッダーにYouTube動画やMP4、静止画が挿入...',
+    link: 'https://demo.tcd-theme.com/tcd041/?p=1926',
+    img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/17-280x280.jpg',
+    tags: [
+      {
+        label: 'FEATURE',
+        link: 'https://demo.tcd-theme.com/tcd041/?cat=1'
+      }
+    ]
+  },
+  {
+    date: '2016.11.22',
+    heading: '思い出の写真を飾るギャラリーページ登場！',
+    link: 'https://demo.tcd-theme.com/tcd041/?p=1924',
+    img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/04-2-280x280.jpg',
+    tags: [
+      {
+        label: 'FEATURE',
+        link: 'https://demo.tcd-theme.com/tcd041/?cat=1'
+      }
+    ]
+  },
+  {
+    date: '2016.11.13',
+    heading: '専門知識のない方でも簡単にデザインされたページが作...',
+    link: 'https://demo.tcd-theme.com/tcd041/?p=1821',
+    img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/22-280x280.jpg',
+    tags: [
+      {
+        label: 'FEATURE',
+        link: 'https://demo.tcd-theme.com/tcd041/?cat=1'
+      },
+      {
+        label: 'THEME',
+        link: 'https://demo.tcd-theme.com/tcd041/?cat=21'
+      }
+    ]
+  },
+  {
+    date: '2016.11.13',
+    heading: 'アイキャッチ付き関連記事一覧を記事ページ下部に自動...',
+    link: 'https://demo.tcd-theme.com/tcd041/?p=1479',
+    img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/18-280x280.jpg',
+    tags: [
+      {
+        label: 'THEME',
+        link: 'https://demo.tcd-theme.com/tcd041/?cat=21'
+      }
+    ]
+  },
+  {
+    date: '2016.11.13',
+    heading: 'テーマに設定されている様々なスタイルを確認する為の...',
+    link: 'https://demo.tcd-theme.com/tcd041/?p=1823',
+    img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/21-280x280.jpg',
+    tags: [
+      {
+        label: 'THEME',
+        link: 'https://demo.tcd-theme.com/tcd041/?cat=21'
+      }
+    ]
+  },
+  {
+    date: '2016.11.11',
+    heading: 'タブレット、スマホにも対応したモバイルフレンドリー...',
+    link: 'https://demo.tcd-theme.com/tcd041/?p=23',
+    img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/29-280x280.jpg',
+    tags: [
+      {
+        label: 'THEME',
+        link: 'https://demo.tcd-theme.com/tcd041/?cat=21'
+      }
+    ]
+  }
+] -%}
+
 {# {% block PAGE_HEAD_FILES -%}
   <!-- ▼▼▼ 読み込みファイル（ページ専用） ▼▼▼ -->
   <link rel="stylesheet" href="/{{ CONSTANTS.SITE_ROOT }}css/top.css">
@@ -47,7 +159,7 @@
 
 {% block PAGE_CONTENT -%}
   <!-- ▼▼▼ ニュースリスト ▼▼▼ -->
-  <div class="grid">
+  {# <div class="grid">
     <div class="row">
       {%- for NEWS_ITEM in NEWS_ITEMS -%}
         <div class="col2">
@@ -55,8 +167,19 @@
         </div>
       {%- endfor -%}
     </div>
-  </div>
+  </div> #}
   <!-- ▲▲▲ ニュースリスト ▲▲▲ -->
+  <!-- ▼▼▼ ブログリスト ▼▼▼ -->
+  {# <div class="grid">
+    <div class="row">
+      {%- for BLOG_ITEM in BLOG_ITEMS -%}
+        <div class="col4">
+          {{ BLOG_CARD.default(BLOG_ITEM) }}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div> #}
+  <!-- ▲▲▲ ブログリスト ▲▲▲ -->
 {%- endblock %}
 
 {# {% block PAGE_FOOT_FILES -%}
