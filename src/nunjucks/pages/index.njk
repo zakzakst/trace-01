@@ -7,6 +7,38 @@
   ROOT: './'
 } -%}
 
+{%- import 'components/news-card.njk' as NEWS_CARD -%}
+{% set NEWS_ITEMS = [
+  {
+    date: '2016.09.13',
+    heading: 'WordPressテーマ「STORY」をリリースしました。',
+    text: 'WordPressテーマ「STORY」をリリースしました。 全体的に優しい印象でまとまっていますが、大人の気品や高級感をあわせた万人に好かれるような綺…',
+    link: 'https://demo.tcd-theme.com/tcd041/?news=release',
+    img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/01-1-280x280.jpg'
+  },
+  {
+    date: '2016.09.13',
+    heading: 'テーマのアップデート情報について',
+    text: 'WordPressテーマTCDは常に進化を続けます。不具合などはもちろん、よりユーザビリティを高めるための機能追加も随時行っております。 TCDテーマ…',
+    link: 'https://demo.tcd-theme.com/tcd041/?news=update',
+    img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/07-280x280.jpg'
+  },
+  {
+    date: '2016.09.13',
+    heading: '画像をはめ込むだけで簡単に思い出のアルバムが作れる「ギャラリーページ」を追加しま...',
+    text: '通常の投稿（ブログ記事）とSTORYの独自機能である「お知らせ」カスタム投稿タイプの他にも、WordPressには「固定ページ」という静的なページを作…',
+    link: 'https://demo.tcd-theme.com/tcd041/?news=menu',
+    img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/20-280x280.jpg'
+  },
+  {
+    date: '2016.09.13',
+    heading: 'NEWSやプレスリリース情報の発信に最適なカスタム投稿タイプ「ニュース」をご用意...',
+    text: '「STORY」では、カスタム投稿タイプ「ニュース」をご用意しました。 「ニュース」で作成した記事は通常の投稿とは別にトップページに表示されるようになっ…',
+    link: 'https://demo.tcd-theme.com/tcd041/?news=news',
+    img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/33-280x280.jpg'
+  }
+] -%}
+
 {# {% block PAGE_HEAD_FILES -%}
   <!-- ▼▼▼ 読み込みファイル（ページ専用） ▼▼▼ -->
   <link rel="stylesheet" href="/{{ CONSTANTS.SITE_ROOT }}css/top.css">
@@ -15,42 +47,15 @@
 
 {% block PAGE_CONTENT -%}
   <!-- ▼▼▼ ニュースリスト ▼▼▼ -->
-  {% set NEWS_ITEMS = [
-    {
-      date: '2016.09.13',
-      heading: 'WordPressテーマ「STORY」をリリースしました。',
-      text: 'WordPressテーマ「STORY」をリリースしました。 全体的に優しい印象でまとまっていますが、大人の気品や高級感をあわせた万人に好かれるような綺…',
-      link: 'https://demo.tcd-theme.com/tcd041/?news=release',
-      img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/01-1-280x280.jpg'
-    },
-    {
-      date: '2016.09.13',
-      heading: 'テーマのアップデート情報について',
-      text: 'WordPressテーマTCDは常に進化を続けます。不具合などはもちろん、よりユーザビリティを高めるための機能追加も随時行っております。 TCDテーマ…',
-      link: 'https://demo.tcd-theme.com/tcd041/?news=update',
-      img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/07-280x280.jpg'
-    },
-    {
-      date: '2016.09.13',
-      heading: '画像をはめ込むだけで簡単に思い出のアルバムが作れる「ギャラリーページ」を追加しま...',
-      text: '通常の投稿（ブログ記事）とSTORYの独自機能である「お知らせ」カスタム投稿タイプの他にも、WordPressには「固定ページ」という静的なページを作…',
-      link: 'https://demo.tcd-theme.com/tcd041/?news=menu',
-      img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/20-280x280.jpg'
-    },
-    {
-      date: '2016.09.13',
-      heading: 'NEWSやプレスリリース情報の発信に最適なカスタム投稿タイプ「ニュース」をご用意...',
-      text: '「STORY」では、カスタム投稿タイプ「ニュース」をご用意しました。 「ニュース」で作成した記事は通常の投稿とは別にトップページに表示されるようになっ…',
-      link: 'https://demo.tcd-theme.com/tcd041/?news=news',
-      img: 'https://demo.tcd-theme.com/tcd041/wp-content/uploads/2016/11/33-280x280.jpg'
-    }
-  ] -%}
-  {%- import 'components/news-card.njk' as NEWS_CARD -%}
-  {%- for NEWS_ITEM in NEWS_ITEMS -%}
-    <div class="">
-      {{ NEWS_CARD.default(NEWS_ITEM) }}
+  <div class="grid">
+    <div class="row">
+      {%- for NEWS_ITEM in NEWS_ITEMS -%}
+        <div class="col2">
+          {{ NEWS_CARD.default(NEWS_ITEM) }}
+        </div>
+      {%- endfor -%}
     </div>
-  {%- endfor -%}
+  </div>
   <!-- ▲▲▲ ニュースリスト ▲▲▲ -->
 {%- endblock %}
 

@@ -1,7 +1,9 @@
 {% macro default(item) %}
 <a href="{{ item.link }}" class="news-card">
-  <div class="news-card__img">
-    <img width="280" height="280" src="{{ item.img }}" alt="" loading="lazy">
+  <div class="news-card__img-container">
+    <div class="news-card__img">
+      <img src="{{ item.img }}" alt="" loading="lazy">
+    </div>
   </div>
   <div class="news-card__content">
     <time class="news-card__date">{{ item.date }}</time>
