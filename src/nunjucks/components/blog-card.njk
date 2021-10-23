@@ -1,0 +1,19 @@
+{% macro default(item) %}
+<a href="{{ item.link }}" class="blog-card">
+  <div class="blog-card__img">
+    <img src="{{ item.img }}" alt="" loading="lazy">
+  </div>
+  <div class="blog-card__content">
+    <h3 class="blog-card__heading">{{ item.heading }}</h3>
+    <p class="blog-card__text">
+      <time class="blog-card__date">{{ item.date }}</time>
+      <span class="blog-card__tags">
+        {%- for tag in item.tags -%}
+          <span data-url="{{ tag.link }}" class="blog-card__tag">{{ tag.label }}</span>
+          {%- if loop.index !== item.tags.length -%}, {%- endif -%}
+        {%- endfor -%}
+      </span>
+    </p>
+  </div>
+</a>
+{% endmacro %}
