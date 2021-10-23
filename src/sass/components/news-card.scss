@@ -9,12 +9,20 @@ $news_card_duration_default: 0.5s;
   display: flex;
   text-decoration: none;
 
-  &__img {
+  &__img-container {
     position: relative;
     flex-shrink: 0;
     width: 30%;
     height: 0;
     padding-bottom: 30%;
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     overflow: hidden;
     & > img {
       position: absolute;
@@ -22,9 +30,12 @@ $news_card_duration_default: 0.5s;
       right: 0;
       bottom: 0;
       left: 0;
-      margin: auto;
-      object-fit: contain;
+      object-fit: cover;
       object-position: center;
+      transition: $news_card_duration_default;
+      @at-root #{ $BLOCK_NAME }:hover & {
+        transform: scale(1.2);
+      }
     }
   }
 
