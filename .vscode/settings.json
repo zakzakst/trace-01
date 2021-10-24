@@ -13,6 +13,7 @@
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
+  "stylelint.validate": ["css", "scss"],
 
   // 設定：eslint
   "javascript.validate.enable": false,

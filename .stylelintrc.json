@@ -6,6 +6,13 @@
     "stylelint-config-recommended",
     "stylelint-config-prettier",
     "stylelint-config-recommended-scss",
-    "stylelint-config-recess-order"
+    "stylelint-config-recess-order",
+    "stylelint-config-standard-scss"
+  ],
+  "overrides": [
+    {
+      "files": ["**/*.scss"],
+      "customSyntax": "postcss"
+    }
   ]
 }
