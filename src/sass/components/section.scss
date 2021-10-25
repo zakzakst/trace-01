@@ -1,0 +1,19 @@
+@charset 'utf-8';
+
+$BLOCK_NAME: ".section";
+
+// 変数
+
+#{ $BLOCK_NAME } {
+  @include container();
+  padding: 90px 0;
+  text-align: center;
+
+  &__heading {
+    color: $c_primary;
+    font-size: 42px;
+    line-height: 2.2;
+    font-weight: 500;
+    font-family: $ff_serif;
+  }
+}

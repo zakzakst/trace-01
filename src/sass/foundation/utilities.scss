@@ -34,6 +34,16 @@
   }
 }
 
+// 背景色
+.bg-primary-light {
+  background: $c_primary_light;
+}
+
+// 文字色
+.text-white {
+  color: $c_white;
+}
+
 // グリッド
 .grid {
   @include container();
@@ -49,6 +59,14 @@
   padding: 10px;
   @include Mq(md) {
     width: calc(100% / 2);
+  }
+}
+.col3 {
+  width: 100%;
+  flex-shrink: 0;
+  padding: 10px;
+  @include Mq(md) {
+    width: calc(100% / 3);
   }
 }
 .col4 {
