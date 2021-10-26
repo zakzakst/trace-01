@@ -16,4 +16,12 @@ $BLOCK_NAME: ".section";
     font-weight: 500;
     font-family: $ff_serif;
   }
+
+  &__heading2 {
+    color: $c_primary;
+    font-size: 32px;
+    line-height: 2.2;
+    font-weight: 500;
+    font-family: $ff_serif;
+  }
 }
