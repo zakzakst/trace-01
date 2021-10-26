@@ -41,7 +41,12 @@
 
 // 文字色
 .text-white {
-  color: $c_white;
+  color: $c_white !important;
+}
+
+// 文字揃え
+.align_left {
+  text-align: left !important;
 }
 
 // グリッド
