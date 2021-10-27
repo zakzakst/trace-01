@@ -3,7 +3,21 @@
 $BLOCK_NAME: ".button";
 
 // 変数
+$button_height: 50px;
+$button_duration: 0.2s;
 
 #{ $BLOCK_NAME } {
-  //
+  display: block;
+  font-size: 14px;
+  height: $button_height;
+  line-height: $button_height;
+  background: $c_white;
+  color: $c_primary;
+  text-align: center;
+  text-decoration: none;
+  transition: $button_duration;
+  &:hover {
+    background: $c_primary;
+    color: $c_white;
+  }
 }
