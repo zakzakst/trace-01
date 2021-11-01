@@ -4,7 +4,7 @@ const environment = process.env.NODE_ENV || 'development';
 module.exports = {
   entry: {
     script: './src/js/script.js',
-    // top: './src/js/page-top.js',
+    top: './src/js/page-top.js',
   },
   resolve: {
     extensions: ['.js'],
