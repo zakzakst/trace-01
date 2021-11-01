@@ -246,8 +246,8 @@
   <!-- ▲▲▲ ブログリスト ▲▲▲ -->
 {%- endblock %}
 
-{# {% block PAGE_FOOT_FILES -%}
+{% block PAGE_FOOT_FILES -%}
   <!-- ▼▼▼ 読み込みファイル（ページ専用） ▼▼▼ -->
-  <link rel="stylesheet" href="/{{ CONSTANTS.SITE_ROOT }}css/top.css">
+  <script src="/{{ CONSTANTS.SITE_ROOT }}js/top.js"></script>
   <!-- ▲▲▲ 読み込みファイル（ページ専用） ▲▲▲ -->
-{%- endblock %} #}
+{%- endblock %}
