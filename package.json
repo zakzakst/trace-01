@@ -9,6 +9,7 @@
     "imageMin": "gulp imageMin",
     "nunjucksBuild": "gulp nunjucksBuild",
     "sassBuild": "gulp sassBuild",
+    "sassLint": "stylelint --fix **/*.scss",
     "webpack": "gulp webpack"
   },
   "author": "",

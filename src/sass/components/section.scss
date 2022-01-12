@@ -10,18 +10,18 @@ $BLOCK_NAME: ".section";
   text-align: center;
 
   &__heading {
-    color: $c_primary;
-    font-size: 42px;
-    line-height: 2.2;
-    font-weight: 500;
     font-family: $ff_serif;
+    font-size: 42px;
+    font-weight: 500;
+    line-height: 2.2;
+    color: $c_primary;
   }
 
   &__heading2 {
-    color: $c_primary;
-    font-size: 32px;
-    line-height: 2.2;
-    font-weight: 500;
     font-family: $ff_serif;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 2.2;
+    color: $c_primary;
   }
 }

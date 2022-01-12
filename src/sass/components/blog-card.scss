@@ -8,8 +8,8 @@ $blog_card_duration_default: 0.5s;
 #{ $BLOCK_NAME } {
   display: block;
   height: 100%;
-  background: $c_gray_light;
   text-decoration: none;
+  background: $c_gray_light;
 
   &__img {
     position: relative;
@@ -20,12 +20,12 @@ $blog_card_duration_default: 0.5s;
     & > img {
       position: absolute;
       top: 0;
-      left: 0;
       right: 0;
       bottom: 0;
+      left: 0;
+      transition: $blog_card_duration_default;
       object-fit: cover;
       object-position: center;
-      transition: $blog_card_duration_default;
       @at-root #{ $BLOCK_NAME }:hover & {
         transform: scale(1.2);
       }
@@ -38,10 +38,10 @@ $blog_card_duration_default: 0.5s;
 
   &__heading {
     font-family: $ff_serif;
-    color: $c_primary;
     font-size: 16px;
     font-weight: 500;
     line-height: 1.6;
+    color: $c_primary;
     transition: $blog_card_duration_default;
     @at-root #{ $BLOCK_NAME }:hover & {
       color: $c_primary_dark;
@@ -63,14 +63,14 @@ $blog_card_duration_default: 0.5s;
     font-size: 12px;
     &::before {
       display: inline-block;
-      content: "|";
       padding: 0 0.5em;
+      content: "|";
       transform: translateY(-1px);
     }
     & > span {
       &:hover {
-        text-decoration: underline;
         color: $c_primary;
+        text-decoration: underline;
       }
     }
   }
