@@ -38,7 +38,6 @@ function SASS_BUILD() {
         outputStyle: outputStyle,
       })
     )
-    .pipe(postcss([stylelint()]))
     .pipe(postcss([autoprefixer()]))
     .pipe(gulp.dest(dist));
 }
